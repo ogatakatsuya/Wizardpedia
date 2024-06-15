@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  frontend:
+    container_name: gmo_front
+    build:
+      dockerfile: ./Dockerfile
+      context: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - type: bind
+        source: ./
+        target: /app
+      - type: volume
+        source: node_modules
+        target: /app/node_modules
+    command: npm run dev
+
+volumes:
+  node_modules:
