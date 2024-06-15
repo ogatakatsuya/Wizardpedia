@@ -1,18 +1,26 @@
-const getData = async () => {
+type BookItem = {
+    serial: number;
+    title: string;
+    summary: string;
+    cover: string;
+    release_date: string | null;
+};
+
+const getData = async ():Promise<BookItem[]> => {
     const url = "https://potterhead-api.vercel.app/api/books";
     const res = await fetch(url);
     return res.json();
 };
 
 const Book = async () => {
-    const data = await getData();
+    const data: BookItem[] = await getData();
     return (
         <>
         <h1 className="text-6xl mb-20 font-black">Book</h1>
         <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {
-                data.map(( item ) => (
-                    <div key={item.id} className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                data.map(( item : BookItem ) => (
+                    <div key={item.serial} className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                         <div>
                             <img className="rounded-t-lg" src={`${item.cover}`} alt="" />
                         </div>

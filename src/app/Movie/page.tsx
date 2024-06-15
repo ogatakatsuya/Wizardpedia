@@ -1,18 +1,26 @@
-const getData = async () => {
+type MovieItem = {
+    serial: number;
+    title: string;
+    summary: string;
+    poster: string;
+    release_date: string | null;
+}
+
+const getData = async ():Promise<MovieItem[]> => {
     const url = "https://potterhead-api.vercel.app/api/movies";
     const res = await fetch(url);
     return res.json();
 };
 
 const Movie = async () => {
-    const data = await getData();
+    const data: MovieItem[] = await getData();
     return (
         <>
         <h1 className="text-6xl mb-20 font-black">Movie</h1>
         <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {
-                data.map((item ) => (
-                    <div key={item.id} className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                data.map((item : MovieItem ) => (
+                    <div key={item.serial} className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                         <div>
                             <img className="rounded-t-lg" src={`${item.poster}`} alt="" />
                         </div>

@@ -1,16 +1,36 @@
-const getData = async () => {
+type Wand = {
+    wood: string | null;
+    core: string | null;
+}
+
+type CharacterItem = {
+    id: string;
+    name: string;
+    species: string | null;
+    gender: string | null;
+    house: string | null;
+    dateOfBirth: string | null;
+    ancestry: string | null;
+    eyeColour: string | null;
+    hairColour: string | null;
+    wand: Wand | null;
+    actor: string | null;
+    image: string | null;
+}
+
+const getData = async ():Promise<CharacterItem[]> => {
     const url = "https://potterhead-api.vercel.app/api/characters";
     const res = await fetch(url);
     return res.json();
 };
 
 export default async function dataIndex() {
-    const data = await getData();
+    const data : CharacterItem[] = await getData();
     return (
     <>
         <h1 className="text-6xl mb-20 font-black">Character</h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {data.map((item) => (
+            {data.map(( item : CharacterItem ) => (
             <div key={item.id} className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             { item.image ? (
                 <div className="flex justify-center items-center h-48 overflow-hidden mt-1">
