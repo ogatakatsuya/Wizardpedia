@@ -18,6 +18,10 @@ type CharacterItem = {
     image: string | null;
 }
 
+type Params = {
+    character_id: string;
+}
+
 const getData = async (character: string): Promise<CharacterItem | null> => {
     const url = `https://potterhead-api.vercel.app/api/characters/${character}`;
     try {
@@ -39,7 +43,7 @@ const getData = async (character: string): Promise<CharacterItem | null> => {
     }
 };
 
-const characterDetail = async ({ params }) => {
+const characterDetail = async ({ params }: { params : Params }) => {
     const data: CharacterItem | null = await getData(params.character_id);
     if (!data) {
         return (
