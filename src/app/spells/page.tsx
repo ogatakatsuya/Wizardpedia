@@ -14,15 +14,15 @@ const Spell = async () => {
     const data : SpellItem[] = await getData();
     return (
         <>
-        <h1 className="text-6xl mb-20 font-black">Spell</h1>
+        <h1 className="text-6xl mb-20 font-black">Spells</h1>
         <div className="relative overflow-x-auto">
         <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 rounded-lg overflow-hidden shadow-lg">
             <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
-                    <th scope="col" className="px-6 py-3">
+                    <th scope="col" className="px-6 py-3 text-xl">
                         Spell
                     </th>
-                    <th scope="col" className="px-6 py-3">
+                    <th scope="col" className="px-6 py-3 text-xl">
                         Description
                     </th>
                 </tr>
