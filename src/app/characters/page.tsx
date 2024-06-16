@@ -43,13 +43,6 @@ export default async function dataIndex() {
                 <div className="p-5">
                 <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{item.name}</h5>
                 { item.species ? <p className="mb-1 font-normal text-gray-700 dark:text-gray-400">Species: {item.species}</p> : <p className="text-gray-700"> Species : unknown</p>}
-                { item.gender ? <p className="mb-1 font-normal text-gray-700 dark:text-gray-400">Gender: {item.gender}</p> : <p className="text-gray-700">Gender : unknown</p>}
-                { item.house ? <p className="mb-1 font-normal text-gray-700 dark:text-gray-400">House: {item.house}</p> : <p className="text-gray-700">House : unknown</p>}
-                { item.dateOfBirth ? <p className="mb-1 font-normal text-gray-700 dark:text-gray-400">Date of Birth: {item.dateOfBirth}</p> : <p className="text-gray-700">Date of Birth : unknown</p>}
-                { item.ancestry ? <p className="mb-1 font-normal text-gray-700 dark:text-gray-400">Ancestry: {item.ancestry}</p> : <p className="text-gray-700">Ancestry : unknown</p>}
-                { item.eyeColour ? <p className="mb-1 font-normal text-gray-700 dark:text-gray-400">Eye Colour: {item.eyeColour}</p> : <p className="text-gray-700">Eye Colour : unknown</p>}
-                { item.hairColour ? <p className="mb-1 font-normal text-gray-700 dark:text-gray-400">Hair Colour: {item.hairColour}</p> : <p className="text-gray-700">Hair Colour : unknown</p>}
-                { item.wand ? <p className="mb-1 font-normal text-gray-700 dark:text-gray-400">Wand: {item.wand.wood}/{item.wand.core}</p> : <p className="text-gray-700">Wand : unknown</p>}
                 { item.actor ? <p className="mb-1 font-normal text-gray-700 dark:text-gray-400">Actor: {item.actor}</p> : <p className="text-gray-700">Actor : unknown</p>}
                 <a href={`/characters/${item.name}`} className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                     Read more
